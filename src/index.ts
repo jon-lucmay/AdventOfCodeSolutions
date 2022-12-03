@@ -5,6 +5,11 @@ import {solutions} from './solutions/solutions';
 import {getData} from './DataHandling/DataCacheing';
 
 dotenv.config();
+/*
+  expected .env vars
+  COOKIE = Advent of Code session cookie as a string. ex: "3131646134634136532"
+  YEAR = the year of puzzles that you want to run, as a string. ex: "2022"
+*/
 
 const main = async () => {
   const readlineInterface = readline.createInterface({
