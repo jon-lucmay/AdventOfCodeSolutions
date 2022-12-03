@@ -1,16 +1,12 @@
 import {stdin, stdout} from 'process';
 import * as readline from 'readline';
 import * as dotenv from 'dotenv';
-import {day1} from './solutions/day1';
-import {day2} from './solutions/day2';
-import {day3} from './solutions/day3';
-import {getData} from './utils/DataCacheing';
+import {solutions} from './solutions/solutions';
+import {getData} from './DataHandling/DataCacheing';
 
 dotenv.config();
 
 const main = async () => {
-  const arrayOfSolutions = [day1, day2, day3];
-
   const readlineInterface = readline.createInterface({
     input: stdin,
     output: stdout,
@@ -21,7 +17,7 @@ const main = async () => {
     readlineInterface.close();
 
     if (data) {
-      arrayOfSolutions[parseInt(day) - 1](data);
+      solutions[process.env.YEAR as string][parseInt(day) - 1](data);
     } else {
       console.error('no data');
     }
