@@ -1,8 +1,6 @@
-import {day1} from './2022/day1';
-import {day2} from './2022/day2';
-import {day3} from './2022/day3';
+import * as days2022 from './2022/index';
 
-const solutionsFor2022 = [day1, day2, day3];
+const solutionsFor2022 = [days2022.day1, days2022.day2, days2022.day3];
 
 interface solutions {
   [index: string]: ((arrayOfData: string[]) => void)[];
