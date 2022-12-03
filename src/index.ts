@@ -17,16 +17,37 @@ const main = async () => {
     output: stdout,
   });
 
-  readlineInterface.question('What day would you like to run?: ', async day => {
-    const data = await getData(parseInt(day));
-    readlineInterface.close();
+  const whatDay = (): Promise<string> => {
+    return new Promise(resolve => {
+      readlineInterface.question('What day should we run?: ', day => {
+        resolve(day);
+      });
+    });
+  };
 
-    if (data) {
-      solutions[process.env.YEAR as string][parseInt(day) - 1](data);
-    } else {
-      console.error('no data');
-    }
-  });
+  const shouldUseTestData = (): Promise<boolean> => {
+    return new Promise(resolve => {
+      readlineInterface.question(
+        'Should we use test data? [y,n]: ',
+        useTestData => {
+          resolve(useTestData.toUpperCase() === 'Y' ? true : false);
+        }
+      );
+    });
+  };
+  const day = await whatDay();
+
+  const useTestData = await shouldUseTestData();
+
+  const data = await getData(parseInt(day), useTestData);
+
+  if (data) {
+    solutions[process.env.YEAR as string][parseInt(day) - 1](data);
+  } else {
+    console.error('no data');
+  }
+
+  readlineInterface.close();
 };
 
 main();
