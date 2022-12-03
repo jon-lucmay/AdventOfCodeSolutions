@@ -1,0 +1,24 @@
+{
+  "engines": {
+    "node": ">=18.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.18.33",
+    "gts": "^3.1.1",
+    "typescript": "~4.7.0"
+  },
+  "scripts": {
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "execute": "node build/index.js",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint",
+    "start": "npm run compile && node build/src/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  }
+}
