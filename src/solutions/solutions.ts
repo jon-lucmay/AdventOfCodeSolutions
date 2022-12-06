@@ -7,6 +7,7 @@ const solutionsFor2022 = [
   days2022.day3,
   days2022.day4,
   days2022.day5,
+  days2022.day6,
 ];
 const solutionsFor2019 = [days2019.day1, days2019.day2];
 
