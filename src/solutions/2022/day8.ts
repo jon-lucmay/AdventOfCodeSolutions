@@ -4,7 +4,7 @@ export const day8 = (arrayOfData: string[]) => {
   let total1 = 0;
 
   // eslint-disable-next-line @typescript-eslint/no-array-constructor
-  const scenicScores = [...Array(arrayOfData.length)].map(e => Array());
+  const scenicScores = [...Array(arrayOfData.length)].map(() => Array());
 
   const isVisible = (i: number, x: number) => {
     /*
