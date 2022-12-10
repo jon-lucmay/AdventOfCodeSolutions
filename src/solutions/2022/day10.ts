@@ -38,7 +38,7 @@ export const day10 = (arrayOfData: string[]) => {
     if ([x, x + 1, x + 2].find(value => value === clock - 40 * crtLine)) {
       screen[crtLine].push('#');
     } else {
-      screen[crtLine].push('.');
+      screen[crtLine].push(' ');
     }
   };
 
